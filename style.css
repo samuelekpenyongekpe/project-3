@@ -1,0 +1,1243 @@
+/* ==========================================================================
+   CRUNCHIES FRIED CHICKEN - DEDICATED STYLESHEET
+   Responsive for Desktop, Tablet, and Mobile
+   Pure HTML & Dedicated CSS (No JS)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --color-red: #e3000b;
+  --color-red-dark: #b80009;
+  --color-red-light: #ff333d;
+  --color-pink-bg: #fde8eb;
+  --color-white: #ffffff;
+  --color-black: #111111;
+  --color-gray-dark: #2c2c2c;
+  --color-gray-text: #4a4a4a;
+  --color-gray-light: #f5f5f5;
+  --color-border: #e0e0e0;
+  --color-yellow: #ffc107;
+  --font-main: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 9999px;
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 14px 32px rgba(227, 0, 11, 0.18);
+}
+
+/* --------------------------------------------------------------------------
+   Reset & Base Styles
+   -------------------------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-main);
+  color: var(--color-gray-dark);
+  background-color: var(--color-white);
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button, input, select {
+  font-family: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Section Title with Red Underline Accent */
+.section-title-wrap {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: var(--color-red);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.section-title-underline {
+  width: 50px;
+  height: 5px;
+  background-color: var(--color-red);
+  border-radius: var(--radius-pill);
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   1. NAVIGATION HEADER
+   -------------------------------------------------------------------------- */
+.site-header {
+  background-color: var(--color-white);
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Crunchies Chicken Mascot Logo */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.brand-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid #28a745;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.brand-badge::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: var(--color-red);
+}
+
+.brand-logo-text {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--color-red);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+/* Location Pin Button */
+.btn-location-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid #e0e0e0;
+  background-color: #fafafa;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.btn-location-header:hover {
+  border-color: var(--color-red);
+  color: var(--color-red);
+}
+
+.btn-location-header svg {
+  color: var(--color-red);
+}
+
+/* Desktop Navigation */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-link {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #333333;
+  transition: color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-red);
+}
+
+/* Cart Icon */
+.cart-link {
+  color: var(--color-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 8px;
+  transition: transform 0.2s;
+}
+
+.cart-link:hover {
+  transform: scale(1.1);
+}
+
+/* Mobile Hamburger Checkbox Hack */
+#mobile-menu-toggle {
+  display: none;
+}
+
+.hamburger-btn {
+  display: none;
+  cursor: pointer;
+  padding: 8px;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 24px;
+  height: 2.5px;
+  background-color: var(--color-red);
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   2. HERO SECTION
+   -------------------------------------------------------------------------- */
+.hero-section {
+  padding: 40px 0 60px 0;
+  background-color: var(--color-white);
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero-text-col {
+  z-index: 2;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-red);
+  margin-bottom: 6px;
+}
+
+.hero-headline {
+  font-size: clamp(2.8rem, 6.5vw, 4.5rem);
+  font-weight: 900;
+  color: var(--color-red);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+
+.hero-prompt-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-red);
+  margin-bottom: 16px;
+}
+
+/* Delivery & Pickup Action Cards */
+.hero-actions-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.order-option-card {
+  flex: 1;
+  min-width: 140px;
+  max-width: 170px;
+  background-color: var(--color-red);
+  color: var(--color-white);
+  padding: 20px 16px;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(227, 0, 11, 0.28);
+  transition: transform 0.2s, background-color 0.2s;
+  cursor: pointer;
+  border: none;
+}
+
+.order-option-card:hover {
+  background-color: var(--color-red-dark);
+  transform: translateY(-3px);
+}
+
+.order-option-card svg {
+  width: 28px;
+  height: 28px;
+  stroke-width: 2.2;
+}
+
+.order-option-card span {
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Hero Image Column */
+.hero-image-col {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-img-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.hero-img-wrapper img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+/* --------------------------------------------------------------------------
+   3. LOCATION MODAL (Hey Cruncher!) - Pure CSS :target & checkbox support
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Open modal when targeted by anchor (#location-modal) */
+.modal-overlay:target {
+  display: flex;
+}
+
+.modal-dialog {
+  background: white;
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 580px;
+  padding: 35px 30px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  animation: modalPop 0.25s ease-out;
+}
+
+@keyframes modalPop {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.modal-close-btn:hover {
+  background-color: #f5f5f5;
+  color: var(--color-red);
+}
+
+.modal-header-tag {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-red);
+  margin-bottom: 4px;
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-black);
+  margin-bottom: 25px;
+}
+
+/* Steps Indicator */
+.steps-indicator {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: #666;
+}
+
+.step-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #444;
+}
+
+.step-item.active .step-circle {
+  border-color: var(--color-red);
+  color: var(--color-red);
+}
+
+/* Select Fields in Modal */
+.modal-form-group {
+  margin-bottom: 18px;
+}
+
+.modal-form-group label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.modal-select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d5d5d5;
+  border-radius: var(--radius-sm);
+  background-color: #ffffff;
+  font-size: 0.95rem;
+  color: #444;
+  outline: none;
+  cursor: pointer;
+  appearance: auto;
+}
+
+.modal-select:focus {
+  border-color: var(--color-red);
+}
+
+.btn-set-location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 170px;
+  margin: 25px auto 0 auto;
+  padding: 11px 20px;
+  border-radius: var(--radius-pill);
+  background: #bcc3c9;
+  color: white;
+  font-size: 0.92rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-set-location:hover {
+  background: var(--color-red);
+}
+
+/* --------------------------------------------------------------------------
+   4. DISCOVER OUR MENU SECTION (6 Categories)
+   -------------------------------------------------------------------------- */
+.menu-section {
+  padding: 60px 0 80px 0;
+  background-color: var(--color-white);
+}
+
+.menu-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.menu-cat-card {
+  position: relative;
+  height: 200px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  display: block;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.menu-cat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.menu-cat-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.menu-cat-card:hover img {
+  transform: scale(1.08);
+}
+
+.menu-cat-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.75) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.menu-cat-name {
+  color: var(--color-white);
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.see-menu-btn-wrap {
+  text-align: center;
+}
+
+.btn-see-menu {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-red);
+  color: var(--color-white);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 14px rgba(227, 0, 11, 0.25);
+  transition: background-color 0.2s, transform 0.15s;
+}
+
+.btn-see-menu:hover {
+  background-color: var(--color-red-dark);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   5. ORDER ON THE GO! (Red Banner)
+   -------------------------------------------------------------------------- */
+.order-go-section {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  padding: 70px 0;
+  overflow: hidden;
+}
+
+.order-go-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.phone-mockup-col {
+  display: flex;
+  justify-content: center;
+}
+
+.phone-frame {
+  width: 290px;
+  background: white;
+  border-radius: 36px;
+  padding: 12px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+  border: 4px solid #eee;
+}
+
+.phone-screen {
+  background-color: #fafafa;
+  border-radius: 26px;
+  overflow: hidden;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-top-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 14px;
+  font-size: 0.72rem;
+  color: #555;
+  font-weight: 600;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.phone-greeting {
+  padding: 12px 14px 6px;
+}
+
+.phone-greeting h5 {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #222;
+}
+
+.phone-greeting p {
+  font-size: 0.75rem;
+  color: #777;
+}
+
+.phone-card-ofada {
+  margin: 8px 14px;
+  background: #fdf1e8;
+  border-radius: 12px;
+  padding: 10px;
+  border: 1px solid #f9d8c0;
+}
+
+.phone-card-ofada h6 {
+  color: var(--color-red);
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+.phone-card-ofada p {
+  font-size: 0.7rem;
+  color: #666;
+}
+
+.phone-categories-row {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 14px;
+  border-top: 1px solid #eee;
+  margin-top: auto;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #555;
+}
+
+.order-go-content h2 {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 18px;
+}
+
+.order-go-content p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  opacity: 0.95;
+  margin-bottom: 28px;
+  max-width: 480px;
+}
+
+.store-buttons-wrap {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.store-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.store-badge:hover {
+  transform: translateY(-2px);
+  background-color: #222;
+}
+
+.store-badge svg {
+  width: 24px;
+  height: 24px;
+}
+
+.store-text-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.store-text-sub {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #bbb;
+}
+
+.store-text-main {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* --------------------------------------------------------------------------
+   6. ABOUT US SECTION
+   -------------------------------------------------------------------------- */
+.about-section {
+  padding: 80px 0;
+  background-color: var(--color-white);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  align-items: center;
+  gap: 45px;
+}
+
+.about-text-col p {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--color-gray-dark);
+  margin-bottom: 18px;
+}
+
+.btn-about-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-red);
+  color: var(--color-white);
+  font-size: 0.98rem;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+
+.btn-about-brand:hover {
+  background-color: var(--color-red-dark);
+}
+
+.about-media-col {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-media-col img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+/* --------------------------------------------------------------------------
+   7. PROMO TILES GRID (Pink Background)
+   -------------------------------------------------------------------------- */
+.promos-section {
+  background-color: var(--color-pink-bg);
+  padding: 60px 0 70px 0;
+}
+
+.promos-2x2-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.promo-tile {
+  position: relative;
+  height: 300px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 30px;
+  color: var(--color-white);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.promo-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.promo-tile-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.promo-tile-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 2;
+}
+
+.promo-tile.tile-red .promo-tile-overlay {
+  background: rgba(227, 0, 11, 0.65);
+}
+
+.promo-tile-body {
+  position: relative;
+  z-index: 3;
+  max-width: 320px;
+}
+
+.promo-tile-body .promo-kicker {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.promo-tile-body .promo-head {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  line-height: 1.1;
+}
+
+.promo-tile-body .promo-link {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-yellow);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   8. NEWSLETTER SUBSCRIBE (Pink Background)
+   -------------------------------------------------------------------------- */
+.newsletter-section {
+  background-color: var(--color-pink-bg);
+  padding: 30px 0 70px 0;
+  text-align: center;
+}
+
+.newsletter-feast-img-wrap {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 24px auto;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border: 4px solid var(--color-white);
+}
+
+.newsletter-feast-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.newsletter-title {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 800;
+  color: var(--color-black);
+  margin-bottom: 8px;
+}
+
+.newsletter-sub {
+  font-size: 1.05rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.newsletter-form {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  background-color: var(--color-white);
+  border-radius: var(--radius-pill);
+  padding: 6px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.newsletter-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 12px 24px;
+  font-size: 1rem;
+  outline: none;
+  color: #333;
+}
+
+.btn-subscribe {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 12px 30px;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-subscribe:hover {
+  background-color: var(--color-red-dark);
+}
+
+/* --------------------------------------------------------------------------
+   9. FOOTER (Solid Red Background)
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  padding: 70px 0 60px 0;
+  position: relative;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1.1fr;
+  gap: 45px;
+}
+
+.footer-col-brand .footer-logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.footer-logo-text {
+  font-size: 1.7rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.footer-info-block {
+  margin-bottom: 24px;
+}
+
+.footer-info-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.footer-info-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.footer-section-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.footer-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.footer-links-list a {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  transition: opacity 0.2s, padding-left 0.2s;
+}
+
+.footer-links-list a:hover {
+  opacity: 1;
+  padding-left: 4px;
+  text-decoration: underline;
+}
+
+.footer-social-row {
+  display: flex;
+  gap: 14px;
+}
+
+.social-circle-link {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.social-circle-link:hover {
+  background-color: var(--color-white);
+  color: var(--color-red);
+  transform: translateY(-2px);
+}
+
+.feedback-col p {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+.btn-submit-feedback {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-white);
+  color: var(--color-red);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-submit-feedback:hover {
+  background-color: #fff0f1;
+  transform: translateY(-2px);
+}
+
+/* Floating "Earn Loyalty Points" Badge */
+.floating-loyalty-badge {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 400;
+  background-color: var(--color-red);
+  color: var(--color-white);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(227, 0, 11, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: transform 0.2s;
+}
+
+.floating-loyalty-badge:hover {
+  transform: scale(1.05);
+}
+
+/* --------------------------------------------------------------------------
+   10. RESPONSIVE BREAKPOINTS (TABLET & MOBILE)
+   -------------------------------------------------------------------------- */
+
+/* TABLET (Under 1024px) */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 35px;
+  }
+
+  .hero-actions-row {
+    justify-content: center;
+  }
+
+  .hero-img-wrapper {
+    margin: 0 auto;
+  }
+
+  .order-go-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .order-go-content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .store-buttons-wrap {
+    justify-content: center;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 35px;
+  }
+
+  .btn-about-brand {
+    margin: 0 auto;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+  }
+}
+
+/* MOBILE (Under 768px) */
+@media (max-width: 768px) {
+  .header-inner {
+    height: 70px;
+  }
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    flex-direction: column;
+    padding: 25px;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    gap: 18px;
+  }
+
+  #mobile-menu-toggle:checked ~ .main-nav {
+    display: flex;
+  }
+
+  .hamburger-btn {
+    display: flex;
+  }
+
+  .btn-location-header {
+    display: none;
+  }
+
+  .hero-headline {
+    font-size: 2.6rem;
+  }
+
+  .menu-categories-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .menu-cat-card {
+    height: 180px;
+  }
+
+  .promos-2x2-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .promo-tile {
+    height: 240px;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    border-radius: var(--radius-md);
+    background: transparent;
+    box-shadow: none;
+    gap: 12px;
+  }
+
+  .newsletter-input {
+    background: white;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+
+  .btn-subscribe {
+    width: 100%;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .footer-social-row {
+    justify-content: center;
+  }
+}

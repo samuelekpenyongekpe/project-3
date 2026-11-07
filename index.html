@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUNCHIES — Taste the Difference... | Menu, Delivery & Fast Food</title>
+  <meta name="description" content="Welcome to Crunchies! Enjoy quality Nigerian meals, crispy fried chicken, jollof rice, shawarma, fresh pastries, and delivery right to your door.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. NAVIGATION HEADER
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-left">
+        <!-- Brand Logo -->
+        <a href="#" class="brand-logo" aria-label="Crunchies Home">
+          <div class="brand-badge">
+            <svg viewBox="0 0 100 100" width="38" height="38">
+              <!-- Rooster mascot silhouette/icon -->
+              <circle cx="50" cy="50" r="42" fill="#fff"/>
+              <path d="M50 20 C42 20 38 28 40 36 C35 34 30 38 32 44 C26 44 24 50 28 56 C26 62 30 70 38 72 C46 74 58 72 65 62 C70 54 70 42 62 32 C58 25 54 20 50 20 Z" fill="#e3000b"/>
+              <circle cx="44" cy="38" r="4" fill="#ffc107"/>
+              <circle cx="44" cy="38" r="2" fill="#000"/>
+              <path d="M38 42 L26 46 L38 50 Z" fill="#ffc107"/>
+              <path d="M50 14 C48 10 52 6 56 10 C60 6 64 10 62 14 Z" fill="#e3000b"/>
+            </svg>
+          </div>
+          <span class="brand-logo-text">CRUNCHIES</span>
+        </a>
+
+        <!-- Set Location Pin Button (Opens Pure CSS Modal via #location-modal) -->
+        <a href="#location-modal" class="btn-location-header">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>Set Location</span>
+        </a>
+      </div>
+
+      <!-- Pure CSS mobile menu toggle -->
+      <input type="checkbox" id="mobile-menu-toggle">
+
+      <!-- Navigation Links -->
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="#" class="nav-link active">Home</a>
+        <a href="#menu" class="nav-link">Menu</a>
+        <a href="#account" class="nav-link">My Account</a>
+        <a href="#support" class="nav-link">Support</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <!-- Shopping Cart Icon -->
+        <a href="#cart" class="cart-link" aria-label="Shopping Cart">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+        </a>
+
+        <!-- Mobile Hamburger Button -->
+        <label for="mobile-menu-toggle" class="hamburger-btn" aria-label="Toggle Navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       2. LOCATION MODAL (Hey Cruncher! Where are you ordering from?)
+       ========================================================================= -->
+  <div id="location-modal" class="modal-overlay">
+    <div class="modal-dialog">
+      <!-- Close button -->
+      <a href="#" class="modal-close-btn" aria-label="Close Modal">&times;</a>
+
+      <div class="modal-header-tag">Hey Cruncher!</div>
+      <h3 class="modal-title">Where are you ordering from?</h3>
+
+      <!-- 3 Steps -->
+      <div class="steps-indicator">
+        <div class="step-item active">
+          <div class="step-circle">1</div>
+          <span>Select state</span>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">2</div>
+          <span>Select city</span>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">3</div>
+          <span>Select branch</span>
+        </div>
+      </div>
+
+      <!-- State Select -->
+      <div class="modal-form-group">
+        <label for="modal-state">State</label>
+        <select id="modal-state" class="modal-select">
+          <option value="">Select Your State</option>
+          <option value="rivers">Rivers State</option>
+          <option value="lagos">Lagos State</option>
+          <option value="imo">Imo State</option>
+          <option value="abia">Abia State</option>
+          <option value="enugu">Enugu State</option>
+          <option value="delta">Delta State</option>
+          <option value="akwa-ibom">Akwa Ibom State</option>
+        </select>
+      </div>
+
+      <!-- City Select -->
+      <div class="modal-form-group">
+        <label for="modal-city">City</label>
+        <select id="modal-city" class="modal-select">
+          <option value="">Select Your City</option>
+          <option value="port-harcourt">Port Harcourt</option>
+          <option value="aba">Aba</option>
+          <option value="owerri">Owerri</option>
+          <option value="enugu">Enugu</option>
+          <option value="asaba">Asaba</option>
+          <option value="uyo">Uyo</option>
+        </select>
+      </div>
+
+      <!-- Outlet Select -->
+      <div class="modal-form-group">
+        <label for="modal-outlet">Outlet</label>
+        <select id="modal-outlet" class="modal-select">
+          <option value="">Closest Outlet</option>
+          <option value="rumuokwuta">Rumuokwuta Branch</option>
+          <option value="woji">Woji Road Branch</option>
+          <option value="oyigbo">Oyigbo Express Branch</option>
+          <option value="trans-amadi">Trans Amadi Branch</option>
+          <option value="choba">Choba Branch</option>
+        </select>
+      </div>
+
+      <!-- Set Location Button -->
+      <a href="#" class="btn-set-location">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+          <line x1="8" y1="2" x2="8" y2="18"></line>
+          <line x1="16" y1="6" x2="16" y2="22"></line>
+        </svg>
+        <span>Set location</span>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- =======================================================================
+         3. HERO SECTION (Taste the Difference...)
+         ======================================================================= -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <!-- Left Content -->
+        <div class="hero-text-col">
+          <div class="hero-subtitle">Welcome to CRUNCHIES!</div>
+          <h1 class="hero-headline">Taste the Difference...</h1>
+          <div class="hero-prompt-text">How would you like to receive your order?</div>
+
+          <div class="hero-actions-row">
+            <!-- Delivery Button -->
+            <a href="#location-modal" class="order-option-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+              <span>Delivery</span>
+            </a>
+
+            <!-- Pickup Button -->
+            <a href="#location-modal" class="order-option-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+              <span>Pickup</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Image: Woman eating crunchy popcorn chicken -->
+        <div class="hero-image-col">
+          <div class="hero-img-wrapper">
+            <img src="/public/assets/aistudio/Screenshot_2026-11-07_084145_41e7d43b.png" alt="Happy customer enjoying fresh Crunchies chicken">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         4. DISCOVER OUR MENU SECTION (6 Categories matching Screenshot 3)
+         ======================================================================= -->
+    <section class="menu-section" id="menu">
+      <div class="container">
+        <div class="section-title-wrap">
+          <h2 class="section-title">Discover Our Menu</h2>
+          <div class="section-title-underline"></div>
+        </div>
+
+        <div class="menu-categories-grid">
+          <!-- 1. Food (Jollof / Fried Rice) -->
+          <a href="#menu-food" class="menu-cat-card">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80" alt="Delicious Jollof and Fried Rice">
+            <div class="menu-cat-scrim">
+              <span class="menu-cat-name">Food</span>
+            </div>
+          </a>
+
+          <!-- 2. Protein (Grilled & Fried Chicken) -->
+          <a href="#menu-protein" class="menu-cat-card">
+            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=600&q=80" alt="Crispy Fried and Roasted Protein Chicken">
+            <div class="menu-cat-scrim">
+              <span class="menu-cat-name">Protein</span>
+            </div>
+          </a>
+
+          <!-- 3. Pastries (Meat Pies & Sausage Rolls) -->
+          <a href="#menu-pastries" class="menu-cat-card">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" alt="Fresh Golden Pastries and Meat Pies">
+            <div class="menu-cat-scrim">
+              <span class="menu-cat-name">Pastries</span>
+            </div>
+          </a>
+
+          <!-- 4. Cakes (Celebration Cakes) -->
+          <a href="#menu-cakes" class="menu-cat-card">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80" alt="Decorated Celebration Cakes">
+            <div class="menu-cat-scrim">
+              <span class="menu-cat-name">Cakes</span>
+            </div>
+          </a>
+
+          <!-- 5. Shawarma (Juicy Grilled Wrap) -->
+          <a href="#menu-shawarma" class="menu-cat-card">
+            <img src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=600&q=80" alt="Juicy Chicken Shawarma Roll">
+            <div class="menu-cat-scrim">
+              <span class="menu-cat-name">Shawarma</span>
+            </div>
+          </a>
+
+          <!-- 6. Bread (Freshly Baked Sliced Bread) -->
+          <a href="#menu-bread" class="menu-cat-card">
+            <img src="https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?auto=format&fit=crop&w=600&q=80" alt="Freshly Baked Crunchies Sliced Bread">
+            <div class="menu-cat-scrim">
+              <span class="menu-cat-name">Bread</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="see-menu-btn-wrap">
+          <a href="#menu" class="btn-see-menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+            <span>See Our Menu</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         5. ORDER ON THE GO! (Red Banner matching Screenshot 4)
+         ======================================================================= -->
+    <section class="order-go-section">
+      <div class="container order-go-grid">
+        <!-- Phone App Mockup -->
+        <div class="phone-mockup-col">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <div class="phone-top-bar">
+                <span>6:55 PM</span>
+                <span>📶 🔋 70%</span>
+              </div>
+              <div class="phone-greeting">
+                <h5>Hi Chimaroke E.,</h5>
+                <p>It's Dinner time!</p>
+              </div>
+              <div class="phone-card-ofada">
+                <h6>Delicious Ofada</h6>
+                <p>Like no other feast</p>
+              </div>
+              <div class="p-3">
+                <div style="background:#e3000b;color:white;font-size:0.75rem;font-weight:700;padding:6px 10px;border-radius:6px;text-align:center;">
+                  Biggest Offer on Big Orders: Up to 70% Off
+                </div>
+              </div>
+              <div class="phone-categories-row">
+                <span>🍚 Food</span>
+                <span>🍗 Protein</span>
+                <span>🥧 Pastry</span>
+                <span>🎂 Cake</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text & App Store Badges -->
+        <div class="order-go-content">
+          <h2>Order on the<br>Go!</h2>
+          <p>
+            Our mobile apps are now available on your device’s app store
+          </p>
+
+          <div class="store-buttons-wrap">
+            <!-- Google Play Badge -->
+            <a href="https://play.google.com" target="_blank" rel="noreferrer" class="store-badge" aria-label="Get Android app on Google Play">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3.6 1.4c-.2.3-.3.7-.3 1.2v18.8c0 .5.1.9.3 1.2l.1.1 10.6-10.6v-.2L3.7 1.3l-.1.1z"/>
+                <path d="M17.8 14.8l-3.5-3.5v-.2l3.5-3.5.1.1 4.1 2.3c1.2.7 1.2 1.8 0 2.5l-4.2 2.3z"/>
+                <path d="M14.3 11.2L3.6 21.9c.4.4 1.1.5 1.9.1l11.4-6.5-2.6-4.3z"/>
+                <path d="M14.3 12.8l2.6-4.3-11.4-6.5c-.8-.4-1.5-.3-1.9.1l10.7 10.7z"/>
+              </svg>
+              <div class="store-text-group">
+                <span class="store-text-sub">Android app on</span>
+                <span class="store-text-main">Google Play</span>
+              </div>
+            </a>
+
+            <!-- App Store Badge -->
+            <a href="https://apple.com" target="_blank" rel="noreferrer" class="store-badge" aria-label="Download on the App Store">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.38c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.98.6-2.62 1.35-.57.65-1.07 1.72-.94 2.74 1 .08 2.02-.49 2.63-1.24z"/>
+              </svg>
+              <div class="store-text-group">
+                <span class="store-text-sub">Download on the</span>
+                <span class="store-text-main">App Store</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         6. ABOUT US SECTION (matching Screenshot 5)
+         ======================================================================= -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="section-title-wrap">
+          <h2 class="section-title">About Us</h2>
+          <div class="section-title-underline"></div>
+        </div>
+
+        <div class="about-grid">
+          <!-- Text Column -->
+          <div class="about-text-col">
+            <p>
+              Crunchies Fried Chicken is a first-grade quick service restaurant that offers a variety of quality fast food products and first-class services. We are currently spread across the South-South, South-East and South-West regions of Nigeria, with over 20 years of experience.
+            </p>
+            <p>
+              We have carved the niche of excellence in the fast food market with a service per excellence acquired from interacting with our valued customers.
+            </p>
+            <a href="#brand" class="btn-about-brand">
+              <span>About Our Brand</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Restaurant Exterior Image -->
+          <div class="about-media-col">
+            <img src="/public/assets/aistudio/Screenshot_2026-11-07_084212_a2a82759.png" alt="Crunchies Fried Chicken restaurant building with red exterior">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         7. PROMO TILES GRID (Pink Background matching Screenshot 6)
+         ======================================================================= -->
+    <section class="promos-section">
+      <div class="container">
+        <div class="promos-2x2-grid">
+          <!-- 1. OFFERS -->
+          <a href="#offers" class="promo-tile">
+            <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80" alt="Smiling customer with Crunchies burger" class="promo-tile-bg">
+            <div class="promo-tile-overlay"></div>
+            <div class="promo-tile-body">
+              <div class="promo-head">OFFERS</div>
+              <div class="promo-link">Click here to see offers</div>
+            </div>
+          </a>
+
+          <!-- 2. Join our Fan Club -->
+          <a href="#fanclub" class="promo-tile tile-red">
+            <img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=700&q=80" alt="Crunchies superhero mascot Fan Club" class="promo-tile-bg">
+            <div class="promo-tile-overlay"></div>
+            <div class="promo-tile-body">
+              <div class="promo-kicker">Join our</div>
+              <div class="promo-head">Fan Club</div>
+              <div class="promo-link">Learn more &rarr;</div>
+            </div>
+          </a>
+
+          <!-- 3. Join Us Careers -->
+          <a href="#careers" class="promo-tile">
+            <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=700&q=80" alt="Friendly Crunchies team member in uniform" class="promo-tile-bg">
+            <div class="promo-tile-overlay"></div>
+            <div class="promo-tile-body">
+              <div class="promo-kicker">Join Us</div>
+              <div class="promo-head">Careers</div>
+              <div class="promo-link">Learn more &rarr;</div>
+            </div>
+          </a>
+
+          <!-- 4. Blog -->
+          <a href="#blog" class="promo-tile">
+            <img src="/public/assets/aistudio/Screenshot_2026-11-07_084231_29db9343.png" alt="Crunchies store blog updates" class="promo-tile-bg">
+            <div class="promo-tile-overlay"></div>
+            <div class="promo-tile-body">
+              <div class="promo-head">Blog</div>
+              <div class="promo-link">Learn more &rarr;</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         8. SUBSCRIBE TO OUR NEWSLETTER (matching Screenshot 7)
+         ======================================================================= -->
+    <section class="newsletter-section">
+      <div class="container">
+        <!-- Circular feast plate image -->
+        <div class="newsletter-feast-img-wrap">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80" alt="Delicious spread of food dishes">
+        </div>
+
+        <h2 class="newsletter-title">Subscribe to our Newsletter</h2>
+        <p class="newsletter-sub">Be the first to get lucky on our amazing offers</p>
+
+        <form class="newsletter-form" action="#" method="POST" onsubmit="alert('Thank you for subscribing to Crunchies!'); return false;">
+          <input type="email" placeholder="Email Address" class="newsletter-input" required aria-label="Email address for newsletter">
+          <button type="submit" class="btn-subscribe">Subscribe Now</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       9. FOOTER (Solid Red Background matching Screenshot 8)
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <!-- Column 1: Opening Hours & Contact -->
+      <div class="footer-col-brand">
+        <div class="footer-logo-wrap">
+          <div class="brand-badge" style="width:42px;height:42px;">
+            <svg viewBox="0 0 100 100" width="32" height="32">
+              <circle cx="50" cy="50" r="42" fill="#fff"/>
+              <path d="M50 20 C42 20 38 28 40 36 C35 34 30 38 32 44 C26 44 24 50 28 56 C26 62 30 70 38 72 C46 74 58 72 65 62 C70 54 70 42 62 32 C58 25 54 20 50 20 Z" fill="#e3000b"/>
+              <circle cx="44" cy="38" r="4" fill="#ffc107"/>
+            </svg>
+          </div>
+          <span class="footer-logo-text">CRUNCHIES</span>
+        </div>
+
+        <div class="footer-info-block">
+          <h4 class="footer-info-title">Opening Hours</h4>
+          <p class="footer-info-text">
+            Mondays to Sundays<br>
+            7:00 AM to 9:00 PM
+          </p>
+        </div>
+
+        <div class="footer-info-block">
+          <h4 class="footer-info-title">Contact Us</h4>
+          <p class="footer-info-text">
+            customercare@crunchiesonline.com<br>
+            09062439146, 09169982493
+          </p>
+        </div>
+      </div>
+
+      <!-- Column 2: Quick Navigation & Social -->
+      <div class="footer-col">
+        <h4 class="footer-section-title">Quick Navigation</h4>
+        <ul class="footer-links-list">
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#fanclub">Fan Club</a></li>
+          <li><a href="#offers">Offers</a></li>
+          <li><a href="#privacy">Privacy Policy</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#terms">Terms and Conditions</a></li>
+        </ul>
+
+        <h4 class="footer-section-title">Find Us Here</h4>
+        <div class="footer-social-row">
+          <a href="https://instagram.com" target="_blank" rel="noreferrer" class="social-circle-link" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="https://facebook.com" target="_blank" rel="noreferrer" class="social-circle-link" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noreferrer" class="social-circle-link" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+          <a href="https://x.com" target="_blank" rel="noreferrer" class="social-circle-link" aria-label="X Twitter">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+          <a href="https://tiktok.com" target="_blank" rel="noreferrer" class="social-circle-link" aria-label="TikTok">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-.88-.06A6.34 6.34 0 0 0 3.14 15.7a6.34 6.34 0 0 0 10.82 4.46 6.27 6.27 0 0 0 1.86-4.46V8.78a8.2 8.2 0 0 0 4.77 1.48v-3.57Z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Column 3: Feedback Form -->
+      <div class="footer-col feedback-col">
+        <h4 class="footer-section-title">Tell us how we're doing...</h4>
+        <p>Your feedback is valuable to us.</p>
+        <a href="#feedback" class="btn-submit-feedback">
+          <span>Submit feedback</span>
+          <span>✨</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating "Earn Loyalty Points" Badge (Bottom right) -->
+  <a href="#rewards" class="floating-loyalty-badge" aria-label="Earn Loyalty Points">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+    </svg>
+    <span>Earn Loyalty Points</span>
+  </a>
+
+</body>
+</html>
